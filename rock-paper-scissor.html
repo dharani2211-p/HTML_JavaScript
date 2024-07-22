@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors-objects</title>
+    <style>
+      p{
+        color: white;
+        font-family: Arial;
+      }
+      body{
+        background-color:rgb(27,27,27);
+        }
+      .game-button{
+        background-color: rgb(27, 27, 27);
+        border:3px solid white;
+        height: 120px;
+        width: 120px;
+        border-radius: 80px;
+        margin-right: 10px;
+      }
+      .reset-button,.auto-play{
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      .img{
+        width: 50px;
+      }
+      .js-result{
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .js-score{
+        margin-top: 55px;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="font-size: 30px; font-weight: 700;">Rock Paper Scissors</p>
+    <button class="game-button" onclick="playGame('rock')"><img  class="img" src="img/rock-emoji.png"></button>
+
+    <button class="game-button" onclick="playGame('paper')"><img class="img" src="img/paper-emoji.png"></button>
+
+    <button class="game-button" onclick="playGame('scissors')"><img class="img" src="img/scissors-emoji.png"></button>
+
+    <p class="js-result"></p>
+
+    <p class="js-moves"></p>
+
+    <p class="js-score"></p>
+
+    <button class="reset-button" onclick="score.wins=0;
+                    score.losses=0;
+                    score.tie=0;
+                    localStorage.removeItem('score')
+                    updateScore();">Reset score</button>
+
+    <button class="auto-play" onclick="autoplay();">Auto-play</button>
+
+          
+    <script src="rock-paper-scissor.js">
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>
+      Calculator
+    </title>
+
+    <style>
+      p{
+        color: white;
+        font-family: Arial;
+        font-size: 40px;
+        font-weight: 400;
+      }
+      .number-button,.clear-button,.symbol-button{
+        background-color: rgb(60, 57, 57);
+        color: white;
+        border: none;
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+        font-size: 24px;
+        font-weight: 500;
+        margin-left: 8px;
+      }
+      .clear-button{
+        font-size:16px ;
+      }
+      .symbol-button{
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body style="background-color: black;">
+    <p style="font-weight: bold;">Calculator</p>
+    <P class="result "></P>
+    <p>
+      <button class="number-button" onclick="calc('1')">1</button>
+      <button class="number-button"  onclick="calc('2')">2</button>
+      <button class="number-button"  onclick="calc('3')">3</button>
+      <button class="symbol-button"  onclick="calc('+')">+</button>
+    </p>
+    <p>
+      <button class="number-button" onclick="calc('4')">4</button>
+      <button class="number-button"  onclick="calc('5')">5</button>
+      <button class="number-button"  onclick="calc('6')">6</button>
+      <button class="symbol-button"   onclick="calc('-')">-</button>
+    </p>
+    <p>
+      <button class="number-button"  onclick="calc('7')">7</button>
+      <button class="number-button"  onclick="calc('8')">8</button>
+      <button class="number-button"   onclick="calc('9')">9</button>
+      <button class="symbol-button"  onclick="calc('*')">*</button>
+    </p>
+    <p>
+      <button class="number-button"  onclick="calc('0')">0</button>
+      <button class="number-button"  onclick="calc('.')">.</button>
+      <button class="number-button"  onclick="calc('=') ">=</button>
+      <button class="symbol-button"  onclick="calc('/')">/</button>
+    </p>
+    <p>
+      <button class="clear-button"   onclick="calc('clear')">Clear</button>
+    </p>
+
+    <script>
+   
+
+      let val=localStorage.getItem('result') || '';
+      
+      document.querySelector('.result').innerHTML=val;
+      function calc(value)
+      {
+        if(value==='=')
+        {
+          val=eval(val);// val will be converted to number
+          val=String(val) ;    //again val chaged to string to concat
+        }
+        else if(value=='clear')
+        {
+          val='' ;
+        }
+        else
+        {
+          val=val+value;
+        }
+        
+        localStorage.setItem('result',val);
+        document.querySelector('.result').innerHTML=val;
+        
+      }
+    </script>
+  </body>
+</html>
